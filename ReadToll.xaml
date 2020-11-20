@@ -1,0 +1,314 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ReadToll" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/intelligentocr" xmlns:p1="http://schemas.uipath.com/workflow/activities/intelligentocr/classification" xmlns:p2="http://schemas.uipath.com/workflow/activities/document-processing-contracts/classification" xmlns:p3="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p4="http://schemas.uipath.com/workflow/activities/intelligentocr/extraction" xmlns:p5="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p6="http://schemas.uipath.com/workflow/activities/document-processing-contracts/extraction" xmlns:p7="http://schemas.uipath.com/workflow/activities/intelligentocr/training" xmlns:p8="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uoa="clr-namespace:UiPath.OmniPage.Activities;assembly=UiPath.OmniPage.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="TollFilePath" Type="InOutArgument(x:String)" />
+    <x:Property Name="Output_data" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1162,1165</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ReadToll_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="46">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Taxonomy</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.TaxonomyManagement</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Dom</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Digitization</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Results</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Classification</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.DocumentClassification</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.DataExtraction</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.DataExtraction</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.ValidationStation</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Training</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.Training</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Vision.OCR</x:String>
+      <x:String>UiPath.OCR.Contracts</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.OmniPage.Activities</x:String>
+      <x:String>UiPath.OCR.Contracts.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="27">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentProcessing.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Mail.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OmniPage.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Contracts</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ReadToll" sap:VirtualizedContainerService.HintSize="376,1000" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="p8:DocumentTaxonomy" Name="taxonomy" />
+      <Variable x:TypeArguments="x:String" Name="digitized_text" />
+      <Variable x:TypeArguments="p3:Document" Name="DOM" />
+      <Variable x:TypeArguments="p5:ClassificationResult[]" Name="classification_reslt" />
+      <Variable x:TypeArguments="p5:ExtractionResult" Name="extraction_reslt" />
+      <Variable x:TypeArguments="x:String" Default="GcQUoPE2A+2CZvUwRKLMJyN9tS0mzh4PgOqbF7B+VBUwKCvDX+Utglp9IbD+CPt7HBp7lMq1wVQUcRRxN9GP3A==" Name="key" />
+      <Variable x:TypeArguments="p5:ExtractionResult" Name="validated_reslt" />
+      <Variable x:TypeArguments="sd:DataSet" Name="confirmed_data" />
+      <Variable x:TypeArguments="x:String" Name="output" />
+      <Variable x:TypeArguments="sd:DataTable" Name="JoinedDT" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <p:LoadTaxonomy DisplayName="Load Taxonomy" sap:VirtualizedContainerService.HintSize="334,67" sap2010:WorkflowViewState.IdRef="LoadTaxonomy_1" Taxonomy="[taxonomy]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </p:LoadTaxonomy>
+    <p:DigitizeDocument DegreeOfParallelism="-1" DisplayName="Digitize Document" DocumentObjectModel="[DOM]" DocumentPath="[TollFilePath]" DocumentText="[digitized_text]" ForceApplyOCR="False" sap:VirtualizedContainerService.HintSize="334,67" sap2010:WorkflowViewState.IdRef="DigitizeDocument_1">
+      <p:DigitizeDocument.OCREngine>
+        <ActivityFunc x:TypeArguments="sd1:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd1:Image" Name="Image" />
+          </ActivityFunc.Argument>
+          <uoa:OmniPageOCR Language="{x:Null}" Output="{x:Null}" Scale="{x:Null}" Text="{x:Null}" BundleType="Basic" ComputeSkewAngle="False" DisplayName="OmniPage OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="312,22" sap2010:WorkflowViewState.IdRef="OmniPageOCR_1" Image="[Image]" Profile="Scan" />
+        </ActivityFunc>
+      </p:DigitizeDocument.OCREngine>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </p:DigitizeDocument>
+    <p1:ClassifyDocumentScope ClassificationResults="[classification_reslt]" DisplayName="Classify Document Scope" DocumentObjectModel="[DOM]" DocumentPath="[TollFilePath]" DocumentText="[digitized_text]" sap:VirtualizedContainerService.HintSize="334,67" sap2010:WorkflowViewState.IdRef="ClassifyDocumentScope_1" Taxonomy="[taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UIcc54fb39cd7d4303a4f43ad140b446c6&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;Toll.PA_NY-NJ.scan&quot;:{&quot;OriginalDocumentTypeId&quot;:&quot;Toll.PA_NY-NJ.scan&quot;,&quot;ClassifierDocumentTypeId&quot;:null,&quot;IsDocumentTypeIdMapped&quot;:true},&quot;Toll.PA_NY-NJ.scan1&quot;:{&quot;OriginalDocumentTypeId&quot;:&quot;Toll.PA_NY-NJ.scan1&quot;,&quot;ClassifierDocumentTypeId&quot;:null,&quot;IsDocumentTypeIdMapped&quot;:true}}}},&quot;ClassifierMinimumConfidence&quot;:{&quot;UIcc54fb39cd7d4303a4f43ad140b446c6&quot;:&quot;0&quot;},&quot;DocumentTypesByPersistenceId&quot;:{}}">
+      <p1:ClassifyDocumentScope.Classifiers>
+        <p1:KeywordBasedClassifier HumanValidatedData="{x:Null}" LearningData="{x:Null}" DisplayName="Keyword Based Classifier" sap:VirtualizedContainerService.HintSize="234,113" sap2010:WorkflowViewState.IdRef="KeywordBasedClassifier_1" LearningFilePath="DocumentProcessing\keywordlearning.json" PersistenceId="UIcc54fb39cd7d4303a4f43ad140b446c6">
+          <p1:KeywordBasedClassifier.ClassifierResult>
+            <OutArgument x:TypeArguments="p2:ClassifierResult">
+              <DelegateArgumentReference x:TypeArguments="p2:ClassifierResult">
+                <DelegateOutArgument x:TypeArguments="p2:ClassifierResult" Name="ClassificationResult" />
+              </DelegateArgumentReference>
+            </OutArgument>
+          </p1:KeywordBasedClassifier.ClassifierResult>
+          <p1:KeywordBasedClassifier.DocumentObjectModel>
+            <InArgument x:TypeArguments="p3:Document">
+              <DelegateArgumentValue x:TypeArguments="p3:Document">
+                <DelegateInArgument x:TypeArguments="p3:Document" Name="DocumentObjectModel" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p1:KeywordBasedClassifier.DocumentObjectModel>
+          <p1:KeywordBasedClassifier.DocumentPath>
+            <InArgument x:TypeArguments="x:String">
+              <DelegateArgumentValue x:TypeArguments="x:String">
+                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentPath" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p1:KeywordBasedClassifier.DocumentPath>
+          <p1:KeywordBasedClassifier.DocumentText>
+            <InArgument x:TypeArguments="x:String">
+              <DelegateArgumentValue x:TypeArguments="x:String">
+                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentText" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p1:KeywordBasedClassifier.DocumentText>
+          <p1:KeywordBasedClassifier.DocumentTypes>
+            <InArgument x:TypeArguments="p2:ClassifierDocumentType[]">
+              <DelegateArgumentValue x:TypeArguments="p2:ClassifierDocumentType[]">
+                <DelegateInArgument x:TypeArguments="p2:ClassifierDocumentType[]" Name="DocumentTypes" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p1:KeywordBasedClassifier.DocumentTypes>
+        </p1:KeywordBasedClassifier>
+      </p1:ClassifyDocumentScope.Classifiers>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </p1:ClassifyDocumentScope>
+    <p4:DataExtractionScope DocumentTypeId="{x:Null}" ClassificationResult="[classification_reslt(0)]" DisplayName="Data Extraction Scope" DocumentObjectModel="[DOM]" DocumentPath="[TollFilePath]" DocumentText="[digitized_text]" ExtractionResult="[extraction_reslt]" FormatValuesIfPossible="True" sap:VirtualizedContainerService.HintSize="478,482" sap2010:WorkflowViewState.IdRef="DataExtractionScope_1" Taxonomy="[taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI42c941ed449b430bbe3eb3a771b7e6a4&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;Toll.PA_NY-NJ.scan&quot;:{&quot;FieldMappings&quot;:{&quot;Toll.PA_NY-NJ.scan.tolls&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan.tolls.TransactionNumber&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.TransactionNumber&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan.tolls.E-ZPassTag#&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.E-ZPassTag#&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:false},&quot;Toll.PA_NY-NJ.scan.tolls.LP&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.LP&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan.tolls.Plaza&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Plaza&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan.tolls.Lane&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Lane&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan.tolls.Date&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Date&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan.tolls.Time&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Time&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan.tolls.Total&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Total&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan.Duedate&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan.Duedate&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true}},&quot;ExtractorDocumentTypeId&quot;:null},&quot;Toll.PA_NY-NJ.scan1&quot;:{&quot;FieldMappings&quot;:{&quot;Toll.PA_NY-NJ.scan1.tolls&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan1.tolls.TransactionNumber&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.TransactionNumber&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan1.tolls.LP&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.LP&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan1.tolls.Plaza&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.Plaza&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan1.tolls.Lane&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.Lane&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan1.tolls.Date&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.Date&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan1.tolls.Time&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.Time&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan1.tolls.Total&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.Total&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true},&quot;Toll.PA_NY-NJ.scan1.DueDate&quot;:{&quot;OriginalTaxonomyFieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.DueDate&quot;,&quot;ExtractorTaxonomyFieldId&quot;:null,&quot;ShouldExtract&quot;:true}},&quot;ExtractorDocumentTypeId&quot;:null}}}},&quot;ExtractorMinimumConfidence&quot;:{&quot;UI42c941ed449b430bbe3eb3a771b7e6a4&quot;:&quot;0&quot;},&quot;ExtractorsAliases&quot;:{},&quot;DocumentTypeOptionsByExtractor&quot;:{&quot;UI42c941ed449b430bbe3eb3a771b7e6a4&quot;:[]}}">
+      <p4:DataExtractionScope.Extractors>
+        <p4:FormExtractor SerializedSignatureFields="{x:Null}" ApiKey="[key]" DisplayName="Form Extractor" Endpoint="https://du.uipath.com/svc/formextractor" sap:VirtualizedContainerService.HintSize="234,161" sap2010:WorkflowViewState.IdRef="FormExtractor_1" MinOverlapPercentage="65" PersistenceId="UI42c941ed449b430bbe3eb3a771b7e6a4" SerializedSettings="{}{}" SerializedTemplates="[{&quot;DocumentTypeId&quot;:&quot;Toll.PayByPlate.paybyplatetoll&quot;,&quot;FormId&quot;:&quot;334cddc8&quot;,&quot;FormName&quot;:&quot;paybyplatetemp&quot;,&quot;OriginalFileExtension&quot;:&quot;pdf&quot;,&quot;Pages&quot;:[{&quot;Page&quot;:0,&quot;Size&quot;:[0.0,0.0,609.0,532.0],&quot;SkewAngle&quot;:0.0,&quot;Evidence&quot;:[{&quot;Text&quot;:&quot;Notice&quot;,&quot;Box&quot;:[49.9125,144.9314,49.1904,10.3185]},{&quot;Text&quot;:&quot;of&quot;,&quot;Box&quot;:[49.4326,199.4007,14.8771,10.7984]},{&quot;Text&quot;:&quot;Liability&quot;,&quot;Box&quot;:[49.4326,219.3168,60.468,13.1979]},{&quot;Text&quot;:&quot;Invoice&quot;,&quot;Box&quot;:[49.4326,285.0638,54.9492,10.5584]},{&quot;Text&quot;:&quot;-&quot;,&quot;Box&quot;:[54.7118,345.052,4.3191,2.1597]},{&quot;Text&quot;:&quot;Collections&quot;,&quot;Box&quot;:[49.1926,354.6501,85.4232,10.5584]}],&quot;Fields&quot;:[{&quot;Field&quot;:&quot;Toll.PayByPlate.paybyplatetoll.LP&quot;,&quot;Box&quot;:[135.2783,386.5094,64.4182,10.9015]},{&quot;Field&quot;:&quot;Toll.PayByPlate.paybyplatetoll.State&quot;,&quot;Box&quot;:[144.6932,408.808,38.1554,11.8926]},{&quot;Field&quot;:&quot;Toll.PayByPlate.paybyplatetoll.InvoiceNo&quot;,&quot;Box&quot;:[154.6037,393.4467,60.454,11.3971]},{&quot;Field&quot;:&quot;Toll.PayByPlate.paybyplatetoll.InvoiceDate&quot;,&quot;Box&quot;:[134.2872,507.4174,53.0212,12.3881]},{&quot;Field&quot;:&quot;Toll.PayByPlate.paybyplatetoll.BalanceDue&quot;,&quot;Box&quot;:[216.0488,493.0472,42.6151,27.2539]},{&quot;Field&quot;:&quot;Toll.PayByPlate.paybyplatetoll.DueDate&quot;,&quot;Box&quot;:[216.5443,536.6534,48.0659,27.2539]}],&quot;Tables&quot;:[]}]},{&quot;DocumentTypeId&quot;:&quot;Toll.PA_NY-NJ.scan&quot;,&quot;FormId&quot;:&quot;5829b9d0&quot;,&quot;FormName&quot;:&quot;PA_NY-NJ mytemp&quot;,&quot;OriginalFileExtension&quot;:&quot;pdf&quot;,&quot;Pages&quot;:[{&quot;Page&quot;:0,&quot;Size&quot;:[0.0,0.0,608.0,790.0],&quot;SkewAngle&quot;:0.0,&quot;Evidence&quot;:[{&quot;Text&quot;:&quot;PORT&quot;,&quot;Box&quot;:[6.2337,513.0599,30.9275,6.7131]},{&quot;Text&quot;:&quot;AUTHORITY&quot;,&quot;Box&quot;:[13.9059,512.5804,67.6089,6.9529]},{&quot;Text&quot;:&quot;NY&quot;,&quot;Box&quot;:[21.3384,513.0599,15.8234,5.9939]},{&quot;Text&quot;:&quot;NJ&quot;,&quot;Box&quot;:[21.3384,531.2808,11.9874,6.2336]},{&quot;Text&quot;:&quot;NOTICE&quot;,&quot;Box&quot;:[29.7299,190.3596,65.9307,13.1866]},{&quot;Text&quot;:&quot;OF&quot;,&quot;Box&quot;:[29.7299,262.7634,23.7351,13.1866]},{&quot;Text&quot;:&quot;TOLL(S)&quot;,&quot;Box&quot;:[30.2094,292.4921,69.5269,16.783]},{&quot;Text&quot;:&quot;DUE&quot;,&quot;Box&quot;:[30.4492,369.2114,35.7224,13.1866]},{&quot;Text&quot;:&quot;AIR&quot;,&quot;Box&quot;:[38.3612,512.8202,13.1861,4.0759]},{&quot;Text&quot;:&quot;LAND&quot;,&quot;Box&quot;:[38.3612,529.123,21.0979,4.3156]},{&quot;Text&quot;:&quot;RAIL&quot;,&quot;Box&quot;:[38.8407,553.3376,17.7413,4.3156]},{&quot;Text&quot;:&quot;SEA&quot;,&quot;Box&quot;:[39.0804,573.4764,15.8233,4.0759]}],&quot;Fields&quot;:[{&quot;Field&quot;:&quot;Toll.PA_NY-NJ.scan.Duedate&quot;,&quot;Box&quot;:[191.9479,360.6444,44.524,14.8413]}],&quot;Tables&quot;:[{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls&quot;,&quot;Headers&quot;:[{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.TransactionNumber&quot;,&quot;Box&quot;:[275.5541,30.1774,94.4898,14.3466]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.E-ZPassTag#&quot;,&quot;Box&quot;:[275.0594,123.6778,65.3019,14.8413]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.LP&quot;,&quot;Box&quot;:[275.5541,187.9902,63.8177,13.8519]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Plaza&quot;,&quot;Box&quot;:[275.5541,251.3133,38.0928,14.3466]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Lane&quot;,&quot;Box&quot;:[275.5541,289.406,37.1033,15.336]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Date&quot;,&quot;Box&quot;:[276.5435,324.5305,51.45,13.8519]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Time&quot;,&quot;Box&quot;:[275.9062,374.0248,52.4138,15.5145]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Total&quot;,&quot;Box&quot;:[276.3255,523.2993,44.0276,15.5145]}],&quot;Cells&quot;:[{&quot;Row&quot;:0,&quot;Column&quot;:0,&quot;Box&quot;:[289.3241,30.1903,93.9255,9.6441]},{&quot;Row&quot;:0,&quot;Column&quot;:1,&quot;Box&quot;:[289.3241,124.1159,65.4124,10.4828]},{&quot;Row&quot;:0,&quot;Column&quot;:2,&quot;Box&quot;:[291.0014,187.4317,64.9931,8.8055]},{&quot;Row&quot;:0,&quot;Column&quot;:3,&quot;Box&quot;:[290.1628,250.7476,38.9959,10.4828]},{&quot;Row&quot;:0,&quot;Column&quot;:4,&quot;Box&quot;:[288.9048,289.3241,38.1572,12.16]},{&quot;Row&quot;:0,&quot;Column&quot;:5,&quot;Box&quot;:[290.5821,324.9655,51.1559,10.0634]},{&quot;Row&quot;:0,&quot;Column&quot;:6,&quot;Box&quot;:[290.1628,375.7021,50.7366,10.9021]},{&quot;Row&quot;:0,&quot;Column&quot;:7,&quot;Box&quot;:[290.1628,522.4607,44.8662,10.4828]},{&quot;Row&quot;:1,&quot;Column&quot;:0,&quot;Box&quot;:[298.549,28.9324,95.1834,9.6441]},{&quot;Row&quot;:1,&quot;Column&quot;:1,&quot;Box&quot;:[298.549,123.6966,64.9931,10.0634]},{&quot;Row&quot;:1,&quot;Column&quot;:2,&quot;Box&quot;:[298.9683,188.2703,63.7352,10.4828]},{&quot;Row&quot;:1,&quot;Column&quot;:3,&quot;Box&quot;:[298.549,250.3283,38.9959,10.9021]},{&quot;Row&quot;:1,&quot;Column&quot;:4,&quot;Box&quot;:[298.1297,289.3241,36.8993,10.9021]},{&quot;Row&quot;:1,&quot;Column&quot;:5,&quot;Box&quot;:[299.3876,325.8041,48.64,10.4828]},{&quot;Row&quot;:1,&quot;Column&quot;:6,&quot;Box&quot;:[299.3876,375.2828,51.5752,10.0634]},{&quot;Row&quot;:1,&quot;Column&quot;:7,&quot;Box&quot;:[299.3876,522.88,43.6083,10.4828]},{&quot;Row&quot;:2,&quot;Column&quot;:0,&quot;Box&quot;:[307.3545,29.3517,95.6028,9.6441]},{&quot;Row&quot;:2,&quot;Column&quot;:1,&quot;Box&quot;:[307.3545,124.1159,64.9931,9.6441]},{&quot;Row&quot;:2,&quot;Column&quot;:2,&quot;Box&quot;:[308.1931,188.6897,62.8966,8.8055]},{&quot;Row&quot;:2,&quot;Column&quot;:3,&quot;Box&quot;:[308.1931,251.1669,38.9959,9.2248]},{&quot;Row&quot;:2,&quot;Column&quot;:4,&quot;Box&quot;:[308.1931,288.9048,36.48,10.9021]},{&quot;Row&quot;:2,&quot;Column&quot;:5,&quot;Box&quot;:[307.3545,324.9655,50.7366,10.9021]},{&quot;Row&quot;:2,&quot;Column&quot;:6,&quot;Box&quot;:[308.1931,376.1214,50.7366,10.4828]},{&quot;Row&quot;:2,&quot;Column&quot;:7,&quot;Box&quot;:[308.1931,522.88,43.6083,10.9021]},{&quot;Row&quot;:3,&quot;Column&quot;:0,&quot;Box&quot;:[316.5793,29.771,96.0221,10.0634]},{&quot;Row&quot;:3,&quot;Column&quot;:1,&quot;Box&quot;:[316.5793,123.6966,65.4124,10.4828]},{&quot;Row&quot;:3,&quot;Column&quot;:2,&quot;Box&quot;:[316.5793,188.2703,62.8966,10.0634]},{&quot;Row&quot;:3,&quot;Column&quot;:3,&quot;Box&quot;:[316.5793,251.5862,38.5766,10.0634]},{&quot;Row&quot;:3,&quot;Column&quot;:4,&quot;Box&quot;:[316.16,288.4855,37.3186,10.9021]},{&quot;Row&quot;:3,&quot;Column&quot;:5,&quot;Box&quot;:[316.9986,325.8041,49.8979,10.4828]},{&quot;Row&quot;:3,&quot;Column&quot;:6,&quot;Box&quot;:[316.9986,375.2828,51.1559,10.9021]},{&quot;Row&quot;:3,&quot;Column&quot;:7,&quot;Box&quot;:[317.8372,523.2993,44.0276,10.0634]},{&quot;Row&quot;:4,&quot;Column&quot;:0,&quot;Box&quot;:[325.8041,27.6745,97.28,10.0634]},{&quot;Row&quot;:4,&quot;Column&quot;:1,&quot;Box&quot;:[324.9655,124.5352,64.9931,10.9021]},{&quot;Row&quot;:4,&quot;Column&quot;:2,&quot;Box&quot;:[325.8041,188.6897,63.3159,9.2248]},{&quot;Row&quot;:4,&quot;Column&quot;:3,&quot;Box&quot;:[325.3848,252.0055,38.5766,10.9021]},{&quot;Row&quot;:4,&quot;Column&quot;:4,&quot;Box&quot;:[324.9655,289.3241,36.8993,12.16]},{&quot;Row&quot;:4,&quot;Column&quot;:5,&quot;Box&quot;:[325.8041,326.2234,49.4786,10.4828]},{&quot;Row&quot;:4,&quot;Column&quot;:6,&quot;Box&quot;:[326.2234,374.8634,51.9945,10.4828]},{&quot;Row&quot;:4,&quot;Column&quot;:7,&quot;Box&quot;:[325.8041,523.2993,43.6083,11.3214]}]}]}]},{&quot;DocumentTypeId&quot;:&quot;Toll.PA_NY-NJ.scan&quot;,&quot;FormId&quot;:&quot;40e352b4&quot;,&quot;FormName&quot;:&quot;PA_NY-NJ mytemp1&quot;,&quot;OriginalFileExtension&quot;:&quot;pdf&quot;,&quot;Pages&quot;:[{&quot;Page&quot;:0,&quot;Size&quot;:[0.0,0.0,609.0,789.0],&quot;SkewAngle&quot;:0.0,&quot;Evidence&quot;:[{&quot;Text&quot;:&quot;Total&quot;,&quot;Box&quot;:[102.1313,334.8182,20.3718,6.4731]},{&quot;Text&quot;:&quot;Due&quot;,&quot;Box&quot;:[102.1313,359.0248,15.8182,6.7128]},{&quot;Text&quot;:&quot;if&quot;,&quot;Box&quot;:[102.371,378.438,5.033,6.4731]},{&quot;Text&quot;:&quot;received&quot;,&quot;Box&quot;:[102.371,386.5868,34.9917,6.4731]},{&quot;Text&quot;:&quot;by&quot;,&quot;Box&quot;:[112.4403,335.2975,9.1075,8.3911]},{&quot;Text&quot;:&quot;Total&quot;,&quot;Box&quot;:[102.371,453.9339,20.8512,6.7129]},{&quot;Text&quot;:&quot;Due&quot;,&quot;Box&quot;:[102.6108,478.6198,15.8182,6.4731]},{&quot;Text&quot;:&quot;if&quot;,&quot;Box&quot;:[102.371,498.2727,4.7934,6.7129]},{&quot;Text&quot;:&quot;received&quot;,&quot;Box&quot;:[102.6108,506.1818,34.9917,6.4731]},{&quot;Text&quot;:&quot;after&quot;,&quot;Box&quot;:[112.68,454.1736,19.1736,6.7129]}],&quot;Fields&quot;:[{&quot;Field&quot;:&quot;Toll.PA_NY-NJ.scan.Duedate&quot;,&quot;Box&quot;:[200.192,420.205,49.057,14.8657]}],&quot;Tables&quot;:[{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls&quot;,&quot;Headers&quot;:[{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.TransactionNumber&quot;,&quot;Box&quot;:[292.3596,32.7046,86.2213,18.3344]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.E-ZPassTag#&quot;,&quot;Box&quot;:[292.3596,116.9439,55.9943,18.3344]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.LP&quot;,&quot;Box&quot;:[292.3596,172.4426,55.0033,18.3344]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Plaza&quot;,&quot;Box&quot;:[292.8552,224.9683,32.7046,18.8299]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Lane&quot;,&quot;Box&quot;:[293.3507,256.6819,28.2449,17.3434]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Date&quot;,&quot;Box&quot;:[294.3417,282.4491,35.6778,16.8478]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Time&quot;,&quot;Box&quot;:[294.3417,317.6314,37.6599,17.3434]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan.tolls.Total&quot;,&quot;Box&quot;:[292.3596,527.2384,44.1017,19.3255]}],&quot;Cells&quot;:[{&quot;Row&quot;:0,&quot;Column&quot;:0,&quot;Box&quot;:[309.703,31.7136,88.2034,10.406]},{&quot;Row&quot;:0,&quot;Column&quot;:1,&quot;Box&quot;:[310.1985,117.4394,55.9943,8.9194]},{&quot;Row&quot;:0,&quot;Column&quot;:2,&quot;Box&quot;:[310.1985,172.4426,55.0033,9.9105]},{&quot;Row&quot;:0,&quot;Column&quot;:3,&quot;Box&quot;:[310.6941,225.4638,32.2091,10.406]},{&quot;Row&quot;:0,&quot;Column&quot;:4,&quot;Box&quot;:[310.6941,256.1863,27.2539,9.9105]},{&quot;Row&quot;:0,&quot;Column&quot;:5,&quot;Box&quot;:[310.6941,283.4402,35.6778,8.9194]},{&quot;Row&quot;:0,&quot;Column&quot;:6,&quot;Box&quot;:[310.1985,317.6314,36.6688,10.406]},{&quot;Row&quot;:0,&quot;Column&quot;:7,&quot;Box&quot;:[310.6941,527.7339,42.6151,11.3971]}]}]}]},{&quot;DocumentTypeId&quot;:&quot;Toll.PA_NY-NJ.scan1&quot;,&quot;FormId&quot;:&quot;f099a1ed&quot;,&quot;FormName&quot;:&quot;PA_NJ mytemp&quot;,&quot;OriginalFileExtension&quot;:&quot;pdf&quot;,&quot;Pages&quot;:[{&quot;Page&quot;:0,&quot;Size&quot;:[0.0,0.0,609.0,794.0],&quot;SkewAngle&quot;:0.0,&quot;Evidence&quot;:[{&quot;Text&quot;:&quot;VIOLATION&quot;,&quot;Box&quot;:[33.3432,204.8389,96.423,13.4333]},{&quot;Text&quot;:&quot;ENFORCEMENT&quot;,&quot;Box&quot;:[33.5831,308.9374,137.1989,13.4333]},{&quot;Text&quot;:&quot;ACTION&quot;,&quot;Box&quot;:[34.0628,451.653,67.1603,13.1934]},{&quot;Text&quot;:&quot;IMPENDING&quot;,&quot;Box&quot;:[53.7329,119.2095,99.7811,13.4332]},{&quot;Text&quot;:&quot;COLLECTION&quot;,&quot;Box&quot;:[53.9728,225.7066,115.1319,13.4333]},{&quot;Text&quot;:&quot;/&quot;,&quot;Box&quot;:[53.9728,347.0748,5.2769,13.4332]},{&quot;Text&quot;:&quot;LEGAL&quot;,&quot;Box&quot;:[54.2127,358.588,59.0052,13.1934]},{&quot;Text&quot;:&quot;ACTION&quot;,&quot;Box&quot;:[54.4526,422.87,67.4002,13.1934]}],&quot;Fields&quot;:[{&quot;Field&quot;:&quot;Toll.PA_NY-NJ.scan1.DueDate&quot;,&quot;Box&quot;:[209.1115,519.8055,47.0749,15.3613]}],&quot;Tables&quot;:[{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls&quot;,&quot;Headers&quot;:[{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.TransactionNumber&quot;,&quot;Box&quot;:[299.297,38.1554,93.1587,18.3344]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.LP&quot;,&quot;Box&quot;:[299.297,130.8186,58.4719,18.8299]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.Plaza&quot;,&quot;Box&quot;:[298.8015,187.8039,30.227,18.8299]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.Lane&quot;,&quot;Box&quot;:[299.7925,217.5354,37.6599,18.3344]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.Date&quot;,&quot;Box&quot;:[298.8015,253.7087,47.0749,19.3255]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.Time&quot;,&quot;Box&quot;:[299.297,299.7925,40.1375,17.3434]},{&quot;FieldId&quot;:&quot;Toll.PA_NY-NJ.scan1.tolls.Total&quot;,&quot;Box&quot;:[299.297,527.7339,47.0749,18.8299]}],&quot;Cells&quot;:[{&quot;Row&quot;:0,&quot;Column&quot;:0,&quot;Box&quot;:[317.6314,37.6599,93.6542,9.9105]},{&quot;Row&quot;:0,&quot;Column&quot;:1,&quot;Box&quot;:[316.1448,129.8275,59.9585,11.3971]},{&quot;Row&quot;:0,&quot;Column&quot;:2,&quot;Box&quot;:[317.1359,188.795,28.7404,9.9105]},{&quot;Row&quot;:0,&quot;Column&quot;:3,&quot;Box&quot;:[317.6314,216.5443,38.6509,9.415]},{&quot;Row&quot;:0,&quot;Column&quot;:4,&quot;Box&quot;:[317.1359,253.7087,46.0838,9.415]},{&quot;Row&quot;:0,&quot;Column&quot;:5,&quot;Box&quot;:[316.1448,300.288,38.1554,11.3971]},{&quot;Row&quot;:0,&quot;Column&quot;:6,&quot;Box&quot;:[316.6404,527.2384,47.5704,11.3971]}]}]}]}]">
+          <p4:FormExtractor.DocumentBounds>
+            <InArgument x:TypeArguments="p5:ResultsDocumentBounds">
+              <DelegateArgumentValue x:TypeArguments="p5:ResultsDocumentBounds">
+                <DelegateInArgument x:TypeArguments="p5:ResultsDocumentBounds" Name="DocumentBounds" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p4:FormExtractor.DocumentBounds>
+          <p4:FormExtractor.DocumentObjectModel>
+            <InArgument x:TypeArguments="p3:Document">
+              <DelegateArgumentValue x:TypeArguments="p3:Document">
+                <DelegateInArgument x:TypeArguments="p3:Document" Name="DocumentObjectModel" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p4:FormExtractor.DocumentObjectModel>
+          <p4:FormExtractor.DocumentPath>
+            <InArgument x:TypeArguments="x:String">
+              <DelegateArgumentValue x:TypeArguments="x:String">
+                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentPath" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p4:FormExtractor.DocumentPath>
+          <p4:FormExtractor.DocumentText>
+            <InArgument x:TypeArguments="x:String">
+              <DelegateArgumentValue x:TypeArguments="x:String">
+                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentText" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p4:FormExtractor.DocumentText>
+          <p4:FormExtractor.ExtractorDocumentType>
+            <InArgument x:TypeArguments="p6:ExtractorDocumentType">
+              <DelegateArgumentValue x:TypeArguments="p6:ExtractorDocumentType">
+                <DelegateInArgument x:TypeArguments="p6:ExtractorDocumentType" Name="ExtractorDocumentType" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p4:FormExtractor.ExtractorDocumentType>
+          <p4:FormExtractor.ExtractorResult>
+            <OutArgument x:TypeArguments="p6:ExtractorResult">
+              <DelegateArgumentReference x:TypeArguments="p6:ExtractorResult">
+                <DelegateOutArgument x:TypeArguments="p6:ExtractorResult" Name="ExtractorResult" />
+              </DelegateArgumentReference>
+            </OutArgument>
+          </p4:FormExtractor.ExtractorResult>
+        </p4:FormExtractor>
+      </p4:DataExtractionScope.Extractors>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </p4:DataExtractionScope>
+    <p:PresentValidationStation AutomaticExtractionResults="[extraction_reslt]" DisplayName="Present Validation Station" DocumentObjectModel="[DOM]" DocumentPath="[TollFilePath]" DocumentText="[digitized_text]" sap:VirtualizedContainerService.HintSize="334,67" sap2010:WorkflowViewState.IdRef="PresentValidationStation_1" Taxonomy="[taxonomy]" ValidatedExtractionResults="[validated_reslt]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </p:PresentValidationStation>
+    <p7:TrainClassifiersScope HumanValidatedClassificationData="{x:Null}" DisplayName="Train Classifiers Scope" DocumentObjectModel="[DOM]" DocumentPath="[TollFilePath]" DocumentText="[digitized_text]" sap:VirtualizedContainerService.HintSize="334,67" HumanValidatedData="[validated_reslt]" sap2010:WorkflowViewState.IdRef="TrainClassifiersScope_1" Taxonomy="[taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI2375fdd9de5a47908c62a773f85cde90&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;Toll.PA_NY-NJ.scan&quot;:{&quot;OriginalDocumentTypeId&quot;:&quot;Toll.PA_NY-NJ.scan&quot;,&quot;ClassifierDocumentTypeId&quot;:null,&quot;IsDocumentTypeIdMapped&quot;:true}}}},&quot;ClassifierMinimumConfidence&quot;:{&quot;UI2375fdd9de5a47908c62a773f85cde90&quot;:&quot;0&quot;},&quot;DocumentTypesByPersistenceId&quot;:{&quot;UI2375fdd9de5a47908c62a773f85cde90&quot;:[]}}">
+      <p7:TrainClassifiersScope.Trainables>
+        <p7:KeywordBasedClassifierTrainer LearningData="{x:Null}" DisplayName="Keyword Based Classifier Trainer" sap:VirtualizedContainerService.HintSize="234,113" sap2010:WorkflowViewState.IdRef="KeywordBasedClassifierTrainer_1" LearningFilePath="DocumentProcessing\keywordlearning.json" PersistenceId="UI2375fdd9de5a47908c62a773f85cde90">
+          <p7:KeywordBasedClassifierTrainer.DocumentObjectModel>
+            <InArgument x:TypeArguments="p3:Document">
+              <DelegateArgumentValue x:TypeArguments="p3:Document">
+                <DelegateInArgument x:TypeArguments="p3:Document" Name="DocumentObjectModel" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p7:KeywordBasedClassifierTrainer.DocumentObjectModel>
+          <p7:KeywordBasedClassifierTrainer.DocumentPath>
+            <InArgument x:TypeArguments="x:String">
+              <DelegateArgumentValue x:TypeArguments="x:String">
+                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentPath" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p7:KeywordBasedClassifierTrainer.DocumentPath>
+          <p7:KeywordBasedClassifierTrainer.DocumentText>
+            <InArgument x:TypeArguments="x:String">
+              <DelegateArgumentValue x:TypeArguments="x:String">
+                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentText" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p7:KeywordBasedClassifierTrainer.DocumentText>
+          <p7:KeywordBasedClassifierTrainer.HumanValidatedData>
+            <InArgument x:TypeArguments="p5:ExtractionResult[]">
+              <DelegateArgumentValue x:TypeArguments="p5:ExtractionResult[]">
+                <DelegateInArgument x:TypeArguments="p5:ExtractionResult[]" Name="HumanValidatedData" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p7:KeywordBasedClassifierTrainer.HumanValidatedData>
+        </p7:KeywordBasedClassifierTrainer>
+      </p7:TrainClassifiersScope.Trainables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </p7:TrainClassifiersScope>
+    <p4:ExportExtractionResults DataSet="[confirmed_data]" DisplayName="Export Extraction Results" ExtractionResult="[extraction_reslt]" sap:VirtualizedContainerService.HintSize="334,67" sap2010:WorkflowViewState.IdRef="ExportExtractionResults_1" IncludeConfidence="False">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </p4:ExportExtractionResults>
+    <ui:JoinDataTables DataTable1="[confirmed_data.Tables(2)]" DataTable2="[confirmed_data.Tables(0)]" DisplayName="Join Data Tables" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="JoinDataTables_1" JoinType="Full" OutputDataTable="[JoinedDT]">
+      <ui:JoinDataTables.Arguments>
+        <scg:List x:TypeArguments="ui:JoinOperationArgument" Capacity="4">
+          <ui:JoinOperationArgument Operand="{x:Null}" BooleanOperator="And" Operator="NOTEQ">
+            <ui:JoinOperationArgument.Column1>
+              <InArgument x:TypeArguments="x:String">["Time"]</InArgument>
+            </ui:JoinOperationArgument.Column1>
+            <ui:JoinOperationArgument.Column2>
+              <InArgument x:TypeArguments="x:String">["Due Date"]</InArgument>
+            </ui:JoinOperationArgument.Column2>
+          </ui:JoinOperationArgument>
+        </scg:List>
+      </ui:JoinDataTables.Arguments>
+    </ui:JoinDataTables>
+    <Assign sap:VirtualizedContainerService.HintSize="334,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">[Output_data]</OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">[JoinedDT]</InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>
